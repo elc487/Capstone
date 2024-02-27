@@ -5,25 +5,25 @@ const productApi = api.injectEndpoints({
     endpoints:builder => ({
         
         getAllProducts: builder.query ({
-            query:() => 'api/products',
+            query:() => '/products',
             providesTags: ["Products"]
         }),
         
         getProduct: builder.query ({
-            query:(productId) => `api/products${productId}`,
+            query:(productId) => `/products/${productId}`,
         }),
         
         getProductCategories: builder.query ({
-            query:() => 'api/products/categories'    
+            query:() => '/products/categories'    
         }),
         
         getProductsbyCategory: builder.query ({
-            query:(category) => `api/products/${category}`,
+            query:(category) => `/products/${category}`,
         }),
         
         addNewProduct: builder.mutation ({
             query: (newproduct) => ({
-                url: 'api/products',
+                url: '/products',
                 method: "POST",
                 body: newproduct
             }),
@@ -32,7 +32,7 @@ const productApi = api.injectEndpoints({
         
         updateProduct: builder.mutation ({
             query: (product) => ({
-                url: `api/products/${product.id}`,
+                url: `/products/${product.id}`,
                 method: "PUT",
                 body: product
             }),
@@ -41,7 +41,7 @@ const productApi = api.injectEndpoints({
         
         deleteProduct: builder.mutation ({
             query: (productId) => ({
-                url: `api/products/${productId}`,
+                url: `/products/${productId}`,
                 method: "DELETE",
             }),
             invalidatesTags: ["Products"]

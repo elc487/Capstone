@@ -1,0 +1,27 @@
+.productslistmain{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+
+.product{
+margin-top: 10px;
+width: 330px;
+background-color: bisque;
+border: 1px solid gray;
+
+
+}
+
+.imgcontainer{
+background-color: white;
+}
+
+.imgcontainer>img {
+width: 100%;
+aspect-ratio: 1/1;
+object-fit: contain;
+
+}
