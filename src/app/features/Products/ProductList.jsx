@@ -1,5 +1,5 @@
 import './productList.css'
-import { useGetAllProductsQuery } from "../../api/products";
+import { useGetAllProductsQuery } from "../../../api/products";
 import { useNavigate } from 'react-router-dom';
 
 export default function ProductList() {

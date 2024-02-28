@@ -25,3 +25,18 @@ aspect-ratio: 1/1;
 object-fit: contain;
 
 }
+
+.singleproduct{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    margin-top: 40px;
+    
+}
+
+
+.productimgcontainer>img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}

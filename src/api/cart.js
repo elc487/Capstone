@@ -4,20 +4,20 @@ const TOKEN = "token"
 const cartApi = api.injectEndpoints({
     endpoints:builder => ({
         getAllCarts: builder.query ({
-            query:() => 'api/carts',
+            query:() => '/carts',
             providesTags: ["Carts"]
         }),
         getCart: builder.query ({
-            query:(cartId) => `api/carts${cartId}`,
+            query:(cartId) => `/carts${cartId}`,
             providesTags: ["Carts"]
         }),
         getUserCart: builder.query ({
-            query:(userId) => `api/carts/user${userId}`,
+            query:(userId) => `/carts/user/${userId}`,
             providesTags: ["Carts"]
         }),
         addNewCart: builder.mutation ({
             query: (newCart) => ({
-                url: 'api/carts',
+                url: '/carts',
                 method: "POST",
                 body: newCart
             }),
@@ -25,7 +25,7 @@ const cartApi = api.injectEndpoints({
         }),
         updateCart: builder.mutation ({
             query: (cart) => ({
-                url: `api/carts/${cart.id}`,
+                url: `/carts/${cart.id}`,
                 method: "PUT",
                 body: cart
             }),
@@ -33,7 +33,7 @@ const cartApi = api.injectEndpoints({
         }),
         deleteCart: builder.mutation ({
             query: (cartId) => ({
-                url: `api/carts/${cartId}`,
+                url: `/carts/${cartId}`,
                 method: "DELETE",
             }),
             invalidatesTags: ["Carts"]
@@ -43,4 +43,4 @@ const cartApi = api.injectEndpoints({
 
 });
 
-export const {} = cartApi
+export const {useGetUserCartQuery, useUpdateCartMutation} = cartApi

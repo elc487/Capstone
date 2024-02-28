@@ -1,21 +1,34 @@
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
-import ProductList from './features/ProductList'
-import Product from './features/Product'
+import ProductList from './features/Products/ProductList'
+import Product from './features/Products/Product'
+import Login from './features/Auth/Auth'
+import Account from './features/Account/Account'
+import { useState } from 'react'
+import Cart from './features/Cart/Cart'
+import LandingPage from './components/LandingPage/LandingPage'
 
 function App() {
+  const[userId,setUserId] = useState(null)
 
   return (
     <div className='App'>
     <Navbar/>
     <Routes>
-      <Route path='/'/>
-      {/* <Route path='/login'element={<Login/>}/>
-      <Route path='/register'element={<Register/>}/> */}
+      <Route path='/' element={<LandingPage/>}/>
+      <Route path='/login'element={<Login setUserId={setUserId}/>}/>
+      {/* <Route path='/register'element={<Register/>}/> */}
       <Route path='/products'element={<ProductList/>}/>
       <Route path='/products/:productId' element={<Product/>}/>
-      {/* <Route path='/create'element={<CreatePost/>}/> */}
-    </Routes>
+      <Route path='/auth'>
+         <Route path='/auth/cart'element={<Cart/>}/>
+         <Route path='/auth/account'element={<Account userId={userId}/>}/>
+      </Route>
+
+      
+      </Routes>
+      
+     
     </div>
   )
 }

@@ -4,29 +4,29 @@ const TOKEN = "token"
 const usersApi = api.injectEndpoints({
     endpoints:builder => ({
         getUsers: builder.query({
-            query: () => 'api/users',
+            query: () => '/users',
         }),
         getUser: builder.query({
-            query:(userId) => `api/user/${userId}`,
+            query:(userId) => `/users/${userId}`,
 
         }),
         createUser: builder.mutation ({
             query: (userinfo) => ({
-                url: `api/users/${userinfo}`,
+                url: `/users/${userinfo}`,
                 method: "POST",
                 body: userinfo
             }),
         }),
         updateUser: builder.mutation ({
             query: (user) => ({
-                url: `api/user/${user.id}`,
+                url: `/users/${user.id}`,
                 method: "PUT",
                 body: user
             }),
         }),
         deleteUser: builder.mutation ({
             query: (userId) => ({
-                url: `api/users/${userId}`,
+                url: `/users/${userId}`,
                 method: "DELETE",
             }),
         }),

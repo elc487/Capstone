@@ -1,0 +1,40 @@
+.cart{
+    width: 400px;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    z-index: 999;
+    background-color: cadetblue;
+    padding: 20px;
+    text-align: center;
+}
+
+h2{
+
+}
+.cartcard{
+    display: flex;
+    align-items: center;
+}
+
+.cartimgcontainer>img{
+    flex: 1;
+    width: 80px;
+    height: 100px;
+    object-fit: contain;
+    
+    
+}
+
+.cartdetails{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+}
+
+span{
+    display:flex;
+    justify-content: space-evenly;
+}
+

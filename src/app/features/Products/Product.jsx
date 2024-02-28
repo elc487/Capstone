@@ -1,10 +1,14 @@
-import { useGetProductQuery } from "../../api/products";
+import { useGetProductQuery } from "../../../api/products";
 import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { addProduct } from "../../components/Redux/CartSlice";
 
 
 const Product = ()=>{
     const {productId} = useParams()
-    const navigate =useNavigate();
+    const dispatch = useDispatch();
+    const[quantity,setQuantity] = useState(1);
     const {data={}, isLoading, isError} =useGetProductQuery(productId)
     if (isLoading) {
         return <div>
@@ -17,10 +21,18 @@ const Product = ()=>{
         Something broke...
         </div>
       }
-      console.log(data)
+
+      async function handleClick(data){
+        dispatch(addProduct({
+          id: data.id,
+          price: data.price,
+          quantity
+        }))
+      }
+  
       return (
-        <div>
-            <div className='imgcontainer'>
+        <div className="singleproduct">
+            <div className='productimgcontainer'>
                         <img src={data.image}/>
                     </div>
            
@@ -33,7 +45,10 @@ const Product = ()=>{
                 <p>{data.price}</p>
                 <p>{data.rating.rate}</p>
                 <p>{data.rating.count} Reviews</p>
-                <button>Add to Cart</button>
+                <button onClick={() => setQuantity(quantity === 1?1:quantity-1)}>-</button>
+                {quantity}
+                <button onClick={() => setQuantity(quantity+1)}>+</button>
+                <button onClick={()=> handleClick(data)} >Add to Cart</button>
                 </div>
             </div>
         </div>
