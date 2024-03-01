@@ -1,4 +1,3 @@
-import { useGetUserCartQuery } from "../../../api/cart";
 import { useSelector } from "react-redux";
 import CartCard from "./CartCard";
 
@@ -15,7 +14,7 @@ const Cart =() =>{
                 <>
                 <h1>Items in Cart</h1>
                 {products.map((product) => 
-                <CartCard product={product}/>
+                <CartCard key={product.id} product={product}/>
                 )}
                 <p>Total: {total}</p>
                 <button>Checkout</button>
