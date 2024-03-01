@@ -7,6 +7,7 @@ import Account from './features/Account/Account'
 import { useState } from 'react'
 import Cart from './features/Cart/Cart'
 import LandingPage from './components/LandingPage/LandingPage'
+import Collections from './features/Collections/Collections'
 
 function App() {
   const[userId,setUserId] = useState(null)
@@ -17,7 +18,7 @@ function App() {
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/login'element={<Login setUserId={setUserId}/>}/>
-      {/* <Route path='/register'element={<Register/>}/> */}
+      <Route path='/collections'element={<Collections/>}/>
       <Route path='/products'element={<ProductList/>}/>
       <Route path='/products/:productId' element={<Product/>}/>
       <Route path='/auth'>
