@@ -1,0 +1,40 @@
+.landing{
+    height: calc(100vh-80px);
+    width: 100vw;
+    position: relative;
+}
+
+.container{
+    width: 500vw;
+    display: flex;
+    height: 100%;
+    transition: all 1s ease-in;
+    
+}
+
+.container>img{
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icons{
+    position:absolute;
+    left: 0;
+    right:0;
+  margin: auto;
+  width: fit-content;
+  bottom: 100px;
+  display: flex;
+  
+}
+
+.icon{
+    border: 1px solid gray;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

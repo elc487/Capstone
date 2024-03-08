@@ -41,7 +41,8 @@ export default function CartCard({product}) {
                         }))}>+</button>
                     </span>
                     <p>${data.price}</p>
-                    
+
+                    <p>Subtotal: {data.price*quantity}</p>
                     </div>
                     <button className="deletebtn" onClick={()=>dispatch(deleteProduct(data.id))}>Remove from Cart</button>
                 </div>

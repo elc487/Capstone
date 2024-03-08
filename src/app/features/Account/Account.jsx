@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Account = ()=>{
   
     const {currentUser} = useSelector(state =>state.user)
-    // const{data={},isLoading,isError} = useGetUserQuery(currentUser[0].id)
+    const{data={},isLoading,isError} = useGetUserQuery(currentUser[0].id)
     
     return(
         <div>

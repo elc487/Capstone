@@ -39,10 +39,10 @@ const Product = ()=>{
             <div className="content">
                 <div className="left">
                 <h2>{data.title}</h2>
-                <p>{data.description}</p>
+                <p>${data.price}</p>
                 </div>
                 <div className="right">
-                <p>{data.price}</p>
+                <p>{data.description}</p>
                 <p>{data.rating.rate}</p>
                 <p>{data.rating.count} Reviews</p>
                 <button onClick={() => setQuantity(quantity === 1?1:quantity-1)}>-</button>
