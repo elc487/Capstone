@@ -1,10 +1,15 @@
 import { useSelector } from "react-redux";
 import CartCard from "./CartCard";
+import CheckOut from "./CheckOut";
 
 const Cart =() =>{
     const products = useSelector(state=>state.cart.products)
-    const stotal = useSelector(state=>state.cart.total)
-    const total = stotal.toFixed(2)
+    const total = products.reduce((count,product)=> {
+       return count = count + (product.quantity*product.price)},
+        
+       0 ).toFixed(2)
+        console.log(total)
+    
     
    
     return(
@@ -16,8 +21,8 @@ const Cart =() =>{
                 {products.map((product) => 
                 <CartCard key={product.id} product={product}/>
                 )}
-                <p>Total: {total}</p>
-                <button>Checkout</button>
+                <p>Total:${total}</p>
+                <button onClick={()=><CheckOut/>}>Checkout</button>
                 </>
                 
 
