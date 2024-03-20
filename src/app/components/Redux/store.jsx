@@ -23,7 +23,7 @@ const rootReducer = combineReducers({cart:cartReducer, user :userReducer,[api.re
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-export const store = configureStore({
+export const setupStore = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -38,7 +38,8 @@ export const store = configureStore({
         }
     }).concat(api.middleware),
     devTools: true
-});
+})
+;
 
-let persistor = persistStore(store)
+let persistor = persistStore(setupStore)
 export {persistor}
