@@ -1,8 +1,9 @@
-import { NavLink, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Navbar.css'
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Cart from "../../features/Cart/Cart";
+import { Logout } from "../../features/Auth/Logout";
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -16,11 +17,16 @@ const Navbar = () => {
         <div className="navbar">
             <div className="logo" onClick={()=>navigate('/')}>Bearie & Rye</div>
                 <ul className="navmenu">
-                    <li><NavLink to='/products'>Shop</NavLink></li> 
-                    <li><NavLink to='/collections'>Collections</NavLink></li>
-                     <li>{
-                     currentUser ?(<NavLink to= '/auth/account'>{currentUser.name.firstname}</NavLink>):
-                     (<NavLink to= '/login'>Login</NavLink>)}  </li>
+                    <li><Link to='/products'>Shop</Link></li> 
+                    <li><Link to='/collections'>Collections</Link></li>
+                    { currentUser ?(
+                        <>
+                     <li>
+                        <Link to= '/auth/account'>{currentUser.name.firstname}</Link>
+                        </li>
+                        <li><Logout/></li>
+                        </>):
+                     (<li><Link to= '/login'>Login</Link></li>)}
                     <li id='cart' onClick={()=>setOpen(!open)}>Cart
 
                     <span>{cartNumber}</span></li>
